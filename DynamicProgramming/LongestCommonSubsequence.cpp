@@ -49,7 +49,6 @@ int LCS::findLCS_TPDWN(const string &in1, const string &in2, int index1, int ind
 int LCS::findLCS_DP_TPDWN(const string &in1, const string &in2, int n, int m)
 {
     vector<int> DP[n+1];
-    
     for(int i=0;i<=n;i++)
         for(int j=0;j<=m;j++)
             DP[i].push_back(0);
@@ -60,7 +59,10 @@ int LCS::findLCS_DP_TPDWN(const string &in1, const string &in2, int n, int m)
         for(int j=1;j<=m;j++)
         {
             if(in1[i-1]==in2[j-1])
+            {
                 DP[i][j]= 1+ (DP[i-1][j-1]);
+                
+            }
             else
                 DP[i][j]= max(DP[i-1][j],DP[i][j-1]);
         }
